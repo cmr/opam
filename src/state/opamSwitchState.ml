@@ -676,7 +676,7 @@ let unavailable_reason st ?(default="") (name, vformula) =
       candidates
   in
   if OpamPackage.Set.is_empty candidates then
-    (if OpamPackage.has_name st.packages name then (Printf.sprintf "no matching version for %s" name)
+    (if OpamPackage.has_name st.packages name then (Printf.sprintf "no matching version for %s" (OpamPackage.Name.to_string name))
      else "unknown package")
   else
   let nv =
